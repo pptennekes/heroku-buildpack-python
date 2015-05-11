@@ -197,11 +197,12 @@ set-default-env PYTHONPATH /app/
 # Install sane-default script for WEB_CONCURRENCY environment variable.
 cp $ROOT_DIR/vendor/python.webconcurrency.sh $WEBCONCURRENCY_PROFILE_PATH
 
-
+echo "XXXXXXXX PC"
 # Experimental post_compile hook.
 bpwatch start post_compile
   source $BIN_DIR/steps/hooks/post_compile
 bpwatch stop post_compile
+echo "XXXXXXXX DC"
 
 # Store new artifacts in cache.
 bpwatch start dump_cache
@@ -210,6 +211,7 @@ bpwatch start dump_cache
     cp -R $dir $CACHE_DIR/
   done
 bpwatch stop dump_cache
+echo "XXXXXXXX AC"
 
 # ### Fin.
 if [[ ! "$DOCKER_BUILD" ]]; then
@@ -227,3 +229,4 @@ if [[ ! "$DOCKER_BUILD" ]]; then
   bpwatch stop compile
 fi
 
+echo "XXXXXXXX XX"
